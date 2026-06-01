@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark variant; Compose drives the actual colors at runtime. -->
+    <style name="Theme.ObsidianGitSync" parent="android:Theme.Material.NoActionBar" />
+</resources>

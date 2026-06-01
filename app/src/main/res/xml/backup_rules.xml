@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Auto-backup is disabled at the app level (allowBackup="false") so the
+    encrypted PAT never leaves the device. This file is required by the
+    manifest reference but intentionally excludes everything.
+-->
+<full-backup-content>
+    <exclude domain="sharedpref" path="." />
+    <exclude domain="file" path="." />
+</full-backup-content>

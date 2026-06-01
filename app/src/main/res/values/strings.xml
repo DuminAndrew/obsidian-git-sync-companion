@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Obsidian Git-Sync</string>
+
+    <!-- Notification channel for background sync. -->
+    <string name="sync_channel_name">Vault synchronization</string>
+    <string name="sync_channel_desc">Background synchronization of your Obsidian vault with GitHub.</string>
+    <string name="sync_notification_title">Syncing vault…</string>
+</resources>

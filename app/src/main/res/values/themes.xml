@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Base theme. Compose drives the actual Material3 colors at runtime
+        (see ui/theme/Theme.kt), so this only needs to be a Material3 parent
+        with no action bar and a translucent system bar handled by Compose.
+    -->
+    <style name="Theme.ObsidianGitSync" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
