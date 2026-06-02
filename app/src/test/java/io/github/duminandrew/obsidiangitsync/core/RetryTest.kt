@@ -55,7 +55,7 @@ class RetryTest {
                 retryOn = { it is IOException },
             ) {
                 calls++
-                throw IllegalStateException("non-retryable")
+                error("non-retryable")
             }
         }.exceptionOrNull()
         assertEquals(1, calls)

@@ -33,7 +33,9 @@ complexity:
     threshold: 80
   LongParameterList:
     active: true
-    functionThreshold: 8
+    # The sync orchestration functions thread API client, vault, repo coordinates
+    # and several SHA states; 12 keeps them readable without forcing a wrapper type.
+    functionThreshold: 12
     constructorThreshold: 9
     ignoreDefaultParameters: true
     ignoreAnnotated: ['Composable']

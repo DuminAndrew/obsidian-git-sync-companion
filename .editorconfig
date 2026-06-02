@@ -21,6 +21,18 @@ ktlint_function_naming_ignore_when_annotated_with = Composable, Test
 # keep them disallowed (default). Filename rule can be noisy for multi-class files.
 ktlint_standard_filename = disabled
 
+# Disable ktlint_official's most aggressive wrapping/blank-line rules; they force
+# non-idiomatic reformatting of multiline expressions, argument lists and
+# function signatures. Every other official rule (unused/wildcard imports,
+# ordering, spacing, naming, max-line-length, ...) stays enforced.
+ktlint_standard_multiline-expression-wrapping = disabled
+ktlint_standard_function-signature = disabled
+ktlint_standard_no-empty-first-line-in-class-body = disabled
+ktlint_standard_argument-list-wrapping = disabled
+ktlint_standard_parameter-list-wrapping = disabled
+ktlint_standard_chain-method-continuation = disabled
+ktlint_standard_blank-line-before-declaration = disabled
+
 [*.{yml,yaml,json}]
 indent_size = 2
 

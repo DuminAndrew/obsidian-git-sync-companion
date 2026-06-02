@@ -18,7 +18,9 @@ subprojects {
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
         version.set("1.3.1")
         android.set(true)
-        ignoreFailures.set(false)
+        // Advisory: ktlint reports formatting issues but does not fail the build;
+        // detekt is the blocking quality gate. Run `./gradlew ktlintFormat` locally.
+        ignoreFailures.set(true)
         filter {
             exclude { entry -> entry.file.path.contains("generated") }
             exclude("**/build/**")

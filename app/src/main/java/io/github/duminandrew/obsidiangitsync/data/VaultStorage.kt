@@ -30,9 +30,9 @@ class VaultStorage(
 
     private fun walk(dir: DocumentFile, prefix: String, out: MutableList<String>) {
         for (child in dir.listFiles()) {
-            val name = child.name ?: continue
-            // Skip the local git plumbing and OS noise; sync only vault content.
-            if (name == ".git" || name == ".trash" || name == ".obsidian.lock") continue
+            val name = child.name
+            // Skip nameless entries, local git plumbing and OS noise; sync only vault content.
+            if (name == null || name == ".git" || name == ".trash" || name == ".obsidian.lock") continue
             val rel = if (prefix.isEmpty()) name else "$prefix/$name"
             if (child.isDirectory) {
                 walk(child, rel, out)

@@ -266,7 +266,7 @@ class SyncEngine(
 
     private fun <T> Response<T>.requireBody(op: String): T {
         if (!isSuccessful) {
-            throw SyncException("$op failed: HTTP $code() ${message()}")
+            throw SyncException("$op failed: HTTP ${code()} ${message()}")
         }
         return body() ?: throw SyncException("$op returned empty body")
     }

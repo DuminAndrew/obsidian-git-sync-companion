@@ -39,6 +39,6 @@ object Retry {
             }
         }
         // Unreachable: the loop either returns or throws.
-        throw lastError ?: IllegalStateException("retry failed without an error")
+        throw lastError ?: error("retry failed without an error")
     }
 }
