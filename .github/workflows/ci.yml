@@ -47,17 +47,10 @@ jobs:
           fi
           chmod +x ./gradlew
 
-      - name: ktlint
-        run: ./gradlew ktlintCheck --stacktrace
-
-      - name: detekt
-        run: ./gradlew detekt --stacktrace
-
-      - name: Unit tests
-        run: ./gradlew test --stacktrace
-
-      - name: Assemble debug APK
-        run: ./gradlew assembleDebug --stacktrace
+      # Single invocation with --continue so ktlint, detekt, unit tests and the
+      # debug assembly all report their failures in one run.
+      - name: Lint, test & assemble
+        run: ./gradlew ktlintCheck detekt testDebugUnitTest assembleDebug --continue --stacktrace
 
       - name: Upload test reports
         if: always()
