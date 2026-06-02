@@ -32,25 +32,19 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
+      # Installs Gradle 8.9 (matching gradle-wrapper.properties) on PATH and
+      # enables build/dependency caching. The build runs via this `gradle`
+      # directly, since gradle-wrapper.jar is not committed.
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
+          gradle-version: '8.9'
           cache-read-only: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master' }}
 
-      # The gradle-wrapper.jar is intentionally not committed. Regenerate it with
-      # the system Gradle provisioned by setup-gradle before using ./gradlew.
-      - name: Ensure Gradle wrapper jar
-        run: |
-          if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then
-            echo "wrapper jar missing -> regenerating with system Gradle"
-            gradle wrapper --gradle-version 8.9 --distribution-type bin
-          fi
-          chmod +x ./gradlew
-
       # Single invocation with --continue so ktlint, detekt, unit tests and the
-      # debug assembly all report their failures in one run.
+      # debug assembly all report their findings in one run.
       - name: Lint, test & assemble
-        run: ./gradlew ktlintCheck detekt testDebugUnitTest assembleDebug --continue --stacktrace
+        run: gradle ktlintCheck detekt testDebugUnitTest assembleDebug --continue --stacktrace
 
       - name: Upload test reports
         if: always()
