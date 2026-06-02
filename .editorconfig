@@ -1,0 +1,31 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{kt,kts}]
+# ktlint configuration (official Kotlin code style).
+ktlint_code_style = ktlint_official
+max_line_length = 120
+ij_kotlin_allow_trailing_comma = true
+ij_kotlin_allow_trailing_comma_on_call_site = true
+# Compose @Composable functions are PascalCase by convention; relax the rule
+# rather than disabling naming everywhere.
+ktlint_function_naming_ignore_when_annotated_with = Composable, Test
+# Allow wildcard imports produced by Compose/Material tooling is undesirable;
+# keep them disallowed (default). Filename rule can be noisy for multi-class files.
+ktlint_standard_filename = disabled
+
+[*.{yml,yaml,json}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab

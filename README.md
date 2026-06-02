@@ -1,5 +1,10 @@
 # Obsidian Git-Sync Companion
 
+[![CI](https://github.com/DuminAndrew/obsidian-git-sync-companion/actions/workflows/ci.yml/badge.svg)](https://github.com/DuminAndrew/obsidian-git-sync-companion/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Platform](https://img.shields.io/badge/platform-Android-3DDC84?logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=white)
+
 Android app for **background, conflict-free synchronization** of an
 [Obsidian](https://obsidian.md) vault folder with a **private GitHub repository** —
 no native git, no Termux, no SSH keys. It talks directly to the GitHub REST API
