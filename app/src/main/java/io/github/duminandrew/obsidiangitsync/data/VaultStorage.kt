@@ -32,7 +32,7 @@ class VaultStorage(
         for (child in dir.listFiles()) {
             val name = child.name
             // Skip nameless entries, local git plumbing and OS noise; sync only vault content.
-            if (name == null || name == ".git" || name == ".trash" || name == ".obsidian.lock") continue
+            if (name == null || name in SKIP_NAMES) continue
             val rel = if (prefix.isEmpty()) name else "$prefix/$name"
             if (child.isDirectory) {
                 walk(child, rel, out)
@@ -89,5 +89,10 @@ class VaultStorage(
         fileName.endsWith(".jpg", true) || fileName.endsWith(".jpeg", true) -> "image/jpeg"
         fileName.endsWith(".pdf", true) -> "application/pdf"
         else -> "application/octet-stream"
+    }
+
+    private companion object {
+        /** Local git plumbing and OS/editor noise that must never be synced. */
+        val SKIP_NAMES = setOf(".git", ".trash", ".obsidian.lock")
     }
 }
